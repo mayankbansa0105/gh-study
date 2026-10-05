@@ -8,7 +8,7 @@ jobs:
         steps: 
            - name: "Display Information"
              run: |
-                 echo "Event name: ${{ github.event }}"
+                 echo "Event name: ${{ github.event_name }}"
                  echo "Ref: ${{ github.ref }}"
                  echo "SHA: ${{ github.sha }}"
                  echo "ACTOR: ${{ github.actor }}"
