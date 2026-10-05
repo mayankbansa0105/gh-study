@@ -1,8 +1,6 @@
 name: 01-My workflow
 
 on:
-    push: 
-        branches: ["main"]
     workflow_dispatch:
         
 jobs:
