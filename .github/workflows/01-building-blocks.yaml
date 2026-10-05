@@ -10,7 +10,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Say Hello
-              run: echo "Hello, World!"
+              run:  |
+                    echo "Hello, World!"
+                    ncp
       "echo-goodbye":
         runs-on: ubuntu-latest
         steps:
