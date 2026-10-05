@@ -12,7 +12,7 @@ jobs:
             - name: Say Hello
               run:  |
                     echo "Hello, World!"
-                    ncp
+                    exit 0
       "echo-goodbye":
         runs-on: ubuntu-latest
         steps:
