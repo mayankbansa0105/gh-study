@@ -6,8 +6,8 @@ jobs:
     echo-data:
         runs-on: ubuntu-latest
         steps: 
-           - name: "Display Information"
-             run: |
+            - name: "Display Information"
+              run: |
                  echo "Event name: ${{ github.event_name }}"
                  echo "Ref: ${{ github.ref }}"
                  echo "SHA: ${{ github.sha }}"
@@ -16,3 +16,6 @@ jobs:
                  echo "Workflow: ${{ github.workflow }}"
                  echo "Run ID: ${{ github.run_id}}"
                  echo "Run number: ${{ github.run_number}}"
+            - name: Retreive variable
+              run: |
+                 echo "${{ vars.MY_VAR}}"
