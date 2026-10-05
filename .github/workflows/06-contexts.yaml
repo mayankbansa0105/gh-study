@@ -6,7 +6,7 @@ jobs:
     echo-data:
         runs-on: ubuntu-latest
         steps: 
-            -name: "Display Information"
+           - name: "Display Information"
              run: |
                  echo "Event name: {{github.event}}"
                  echo "Ref: {{ github.ref }}"
