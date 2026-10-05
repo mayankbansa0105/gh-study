@@ -12,7 +12,7 @@ jobs:
               with:
                 node-version: '24.x'
             - name: Install Dependencies
-              working-directory: cd 04-using-actions
+              working-directory: 04-using-actions
               run: npm ci           
             - name: check for current path 
               run: ls -ltrh
