@@ -1,0 +1,46 @@
+name: 13 -1- Using Caching
+on:
+    workflow_dispatch:
+        inputs:
+            use-cache:
+                type: boolean
+                default: true
+                description: Whether to execute cache step
+            node-version:
+                type: choice
+                options:
+                    - 24.x
+                    - 26.x
+                default: 24.x
+                description: Node Version
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+              working-directory: 13-caching/my-app
+        steps: 
+            - name: Checkout Code
+              uses: actions/checkout@v7
+            - name: Setup Node
+              uses: actions/setup-node@v7
+              with:
+                node-version: ${{ inputs.node-version }}
+                cache: 'npm'
+                cache-dependency-path: 13-caching/my-app/package-lock.json
+            # - name: Download cached dependencies
+            #   id: cache
+            #   if: inputs.use-cache == true
+            #   uses: actions/cache@v6
+            #   with:
+            #     key: deps-node-modules-${{ hashFiles('13-caching/my-app/package-lock.json') }}
+            #     path: 13-caching/my-app/node_modules
+            - name: Instal Dependencies
+              run: npm ci
+            #   if: ${{ steps.cache.outputs.cache-hit != 'true' }} 
+            - name: Testing
+              run: npm run test
+            - name: Building
+              run: npm run test
+            - name: Deploying to nonprod
+              run: echo "Deploying to nonprod" 
