@@ -41,6 +41,24 @@ jobs:
             - name: Testing
               run: npm run test
             - name: Building
-              run: npm run test
+              run: npm run build
+            - name: upload-artficats
+              uses: actions/upload-artifact@v7
+              with: 
+                 name: app-${{ github.sha }}
+                 path: 13-caching/my-app/build
             - name: Deploying to nonprod
               run: echo "Deploying to nonprod" 
+    deploytoprod:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+              working-directory: 13-caching/my-app
+        
+        needs: build
+        steps:
+            - name: Download
+              uses: actions/download-artifact@v8
+              with:
+                name: app-${{ github.sha }}
+                path: build
