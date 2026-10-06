@@ -4,6 +4,6 @@ on:
 
 jobs:
     deploy:
-        uses: ./.github/workflows/Reusable-Internal-Call.yaml
+        uses: ./.github/workflows/Reusable-internal-call.yaml
         with:
           name: varsha
