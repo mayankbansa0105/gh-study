@@ -35,7 +35,7 @@ jobs:
                 path: 13-caching/react-app/node_modules
             - name: Instal Dependencies
               run: npm ci
-              if: ${{ steps.cache.outputs.cache-hit == 'true' }} 
+              if: ${{ steps.cache.outputs.cache-hit != 'true' }} 
             - name: Testing
               run: npm run test
             - name: Building
