@@ -21,7 +21,7 @@ runs:
           id: cache
           uses: actions/cache@v6
           with:
-            key: deps-node-module-${{ hashFiles(format('{0}/{1}', inputs.working-dir, 'package-lock.json')) }}
+            key: node-module-${{ hashFiles(format('{0}/{1}', inputs.working-dir, 'package-lock.json')) }}
             path: ${{inputs.working-dir}}/node-modules
         - name: Install dependencies
           if: ${{ steps.cache.outputs.cache-hits != 'true' }}
