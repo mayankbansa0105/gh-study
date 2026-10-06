@@ -1,0 +1,17 @@
+name: Dummy Composite 
+description: basic composite action
+
+inputs:
+  name:
+     type: string
+     default: mayank
+     description: name of hello
+runs:
+  using: composite
+  steps:
+    - name: HEllo there
+      run: echo "Hello"
+      shell: bash
+    - name: print time
+      run: date
+      shell: bash
