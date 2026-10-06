@@ -1,10 +1,9 @@
-Name: Call Internal flow
+name: Call Internal flow
 on: 
   workflow_dispatch:
 
 jobs:
     deploy:
-        runs-on: ubuntu-latest
-        uses: ./.github/workflows/Reusable-Internal-Call
+        uses: ./.github/workflows/Reusable-Internal-Call.yaml
         with:
           name: varsha
