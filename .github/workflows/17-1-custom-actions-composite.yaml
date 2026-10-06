@@ -20,7 +20,7 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v6
             - name: Setup Node and NPM Dependencies
-              uses: ./github/actions/composite-cache-deps
+              uses: ./.github/actions/composite-cache-deps
               with:
                 node-version: 24.x
                 working-dir: ${{ env.working-directory }}
